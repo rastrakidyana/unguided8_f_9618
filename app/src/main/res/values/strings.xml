@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Guided8_9618</string>
+
+    <string name="gd">GUIDED WEB API</string>
+    <string name="welcome">Selamat datang di Guided Modul 8 Web API Retrofit</string>
+    <string name="create">Create User</string>
+    <string name="show">Show List User</string>
+    <string name="hNama">Nama</string>
+    <string name="hNim">Nim</string>
+    <string name="hProdi">Prodi</string>
+    <string name="hFakultas">Fakultas</string>
+    <string name="jk">Jenis Kelamin</string>
+    <string name="laki">Laki-Laki</string>
+    <string name="perempuan">Perempuan</string>
+    <string name="hPass">Password</string>
+    <string name="btnCancel">CANCEL</string>
+    <string name="btnCreate">CREATE</string>
+    <string name="hSearch">Search User</string>
+    <string name="detail">Detail User</string>
+</resources>
