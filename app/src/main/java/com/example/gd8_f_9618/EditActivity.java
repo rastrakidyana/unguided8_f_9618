@@ -134,24 +134,7 @@ public class EditActivity extends AppCompatActivity {
                     etPassword.requestFocus();
                 } else {
                     progressDialog.show();
-                    updateUser(sIdUser);
-                    if (id != null){
-                        Intent intent = new Intent(EditActivity.this, ProfileActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
-                                | Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        EditActivity.this.overridePendingTransition(0, 0);
-                        EditActivity.this.finish();
-                        EditActivity.this.overridePendingTransition(0, 0);
-                        startActivity(intent);
-                    }else  {
-                        Intent intent = new Intent(EditActivity.this, ShowListUserActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
-                                | Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        EditActivity.this.overridePendingTransition(0, 0);
-                        EditActivity.this.finish();
-                        EditActivity.this.overridePendingTransition(0, 0);
-                        startActivity(intent);
-                    }
+                    updateUser(sIdUser, id);
                 }
             }
         });
@@ -190,7 +173,7 @@ public class EditActivity extends AppCompatActivity {
         });
     }
 
-    private void updateUser(String id) {
+    private void updateUser(String id, final String sp) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<UserResponse> upd = apiService.updateUser(id, "data", etNama.getText().toString(),
                 sProdi, sFakultas, sJenisKelamin, etPassword.getText().toString());
@@ -198,8 +181,26 @@ public class EditActivity extends AppCompatActivity {
         upd.enqueue(new Callback<UserResponse>(){
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                assert response.body() != null;
                 Toast.makeText(EditActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
+                if (sp != null){
+                    Intent intent = new Intent(EditActivity.this, ProfileActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
+                            | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    EditActivity.this.overridePendingTransition(0, 0);
+                    EditActivity.this.finish();
+                    EditActivity.this.overridePendingTransition(0, 0);
+                    startActivity(intent);
+                }else  {
+                    Intent intent = new Intent(EditActivity.this, ShowListUserActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK
+                            | Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    EditActivity.this.overridePendingTransition(0, 0);
+                    EditActivity.this.finish();
+                    EditActivity.this.overridePendingTransition(0, 0);
+                    startActivity(intent);
+                }
             }
 
             @Override
