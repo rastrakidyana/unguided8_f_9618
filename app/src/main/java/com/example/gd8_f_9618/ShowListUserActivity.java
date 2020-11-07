@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +29,7 @@ public class ShowListUserActivity extends AppCompatActivity {
     private List<UserDAO> user = new ArrayList<>();
     private SearchView searchView;
     private SwipeRefreshLayout swipeRefresh;
+    private ShimmerFrameLayout shimmerFrameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,7 @@ public class ShowListUserActivity extends AppCompatActivity {
         });
         searchView = findViewById(R.id.searchUser);
         swipeRefresh = findViewById(R.id.swipeRefresh);
+        shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
 
         swipeRefresh.setRefreshing(true);
         loadUser();
@@ -62,6 +66,9 @@ public class ShowListUserActivity extends AppCompatActivity {
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                 generateDataList(response.body().getUsers());
                 swipeRefresh.setRefreshing(false);
+
+                shimmerFrameLayout.stopShimmerAnimation();
+                shimmerFrameLayout.setVisibility(View.GONE);
             }
 
             @Override
@@ -93,5 +100,17 @@ public class ShowListUserActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        shimmerFrameLayout.startShimmerAnimation();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        shimmerFrameLayout.stopShimmerAnimation();
     }
 }

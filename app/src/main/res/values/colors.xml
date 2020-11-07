@@ -8,4 +8,5 @@
     <color name="black">#000000</color>
     <color name="choco">#DEAE8D</color>
     <color name="pink">#FFC0Cb</color>
+    <color name="background">#dddddd</color>
 </resources>

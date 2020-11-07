@@ -1,40 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white">
+    tools:context=".ProfileActivity">
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/navbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="80dp"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:textSize="18dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textSize="25dp"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:text="@string/detail"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/ibClose"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/ic_baseline_close_24"
-            android:foreground="?android:attr/selectableItemBackground"/>
-    </RelativeLayout>
+            android:text="@string/profil"/>
+    </LinearLayout>
 
     <LinearLayout
+        android:layout_below="@+id/navbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -191,8 +182,8 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnDelete"
-                android:text="@string/btnDelete"
+                android:id="@+id/btnLogout"
+                android:text="@string/logout"
                 android:textColor="@color/black"
                 android:layout_alignParentLeft="true"
                 android:layout_marginHorizontal="10dp"
@@ -203,7 +194,7 @@
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/btnEdit"
-                android:text="@string/btnEdit"
+                android:text="@string/edit"
                 android:textColor="@color/black"
                 android:layout_alignParentRight="true"
                 android:layout_marginHorizontal="10dp"
@@ -212,4 +203,5 @@
 
         </RelativeLayout>
     </LinearLayout>
-</LinearLayout>
+
+</RelativeLayout>

@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Guided8_9618</string>
+    <string name="app_name">Unguided8_9618</string>
 
-    <string name="gd">GUIDED WEB API</string>
+    <string name="gd">UNGUIDED WEB API</string>
     <string name="welcome">Selamat datang di Guided Modul 8 Web API Retrofit</string>
     <string name="create">Create User</string>
+    <string name="edit">Edit User</string>
     <string name="show">Show List User</string>
     <string name="hNama">Nama</string>
     <string name="hNim">Nim</string>
@@ -17,4 +18,10 @@
     <string name="btnCreate">CREATE</string>
     <string name="hSearch">Search User</string>
     <string name="detail">Detail User</string>
+    <string name="login">LOGIN</string>
+    <string name="profil">MY PROFILE</string>
+    <string name="logout">LOGOUT</string>
+    <string name="btnDelete">DELETE</string>
+    <string name="btnEdit">EDIT</string>
+    <string name="btnUpdate">UPDATE</string>
 </resources>
